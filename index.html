@@ -200,7 +200,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form class="contact-form" action="#" method="get">
+                <form class="contact-form" id="contact-form">
 
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -251,7 +251,7 @@
                             aria-describedby="message-hint"
                             required
                         ></textarea>
-                        
+
                         <small id="message-hint" class="form-hint">
                             Please enter your message (minimum 10 characters).
                         </small>
@@ -260,6 +260,13 @@
                     <button type="submit" class="submit-button">
                         Send Message →
                     </button>
+
+                    <p
+                        id="form-status"
+                        class="form-status"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
 
                 </form>
 
@@ -285,5 +292,23 @@
 
     </footer>
 
+    <script>
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
+
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            formStatus.textContent =
+                "Thank you! This contact form is currently a demo.";
+
+            contactForm.reset();
+        });
+    </script>
 </body>
 </html>

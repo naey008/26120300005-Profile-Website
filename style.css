@@ -452,6 +452,13 @@ textarea:focus-visible {
     color: #665A52;
 }
 
+.form-status {
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brown);
+}
+
 .submit-button {
     background-color: var(--brown);
     color: var(--white);
